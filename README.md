@@ -1,4 +1,4 @@
-# ssunrin
+# Xssunrin
 Find the XSS vulnerability in the requested url.
 
 Made by. team 1321
