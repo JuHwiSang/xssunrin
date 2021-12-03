@@ -116,7 +116,7 @@ def post(driver, url, params, data):
 
 def get(driver, url, params, data):
     t = url+params_to_str(params)
-    logger.debug(t)
+    # logger.debug(t)
     driver.get(t)
     driver.implicitly_wait(5)
 
