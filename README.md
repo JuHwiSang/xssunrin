@@ -1,7 +1,8 @@
-# Xssunrin
+# xssunrin
 Find the XSS vulnerability in the requested url.
 
 Made by. team 1321
+
 
 The program is under development. You probably don't understand the program. It is very inefficient.
 
