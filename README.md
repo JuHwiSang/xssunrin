@@ -7,6 +7,10 @@ Warning: The program is under development. You probably don't understand the pro
 
 Developed on Windows.
 
+## target
+- reflected xss
+- stored xss
+
 ## initialization
 <code>
 pip install -r requirements.txt
