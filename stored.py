@@ -269,9 +269,13 @@ def get_location(context, n_url):
 
             params = {}
             data = {}
-            method = tag.get('method', GET).upper()
-            if method == GET: params = dicts
-            else: data = dicts
+            # method = tag.get('method', GET).upper()
+            # if method == GET: params = dicts
+            # else: data = dicts
+            if method == POST: data = dicts
+            else:
+                params = dicts
+                method = GET
 
             if not url:
                 url = n_url

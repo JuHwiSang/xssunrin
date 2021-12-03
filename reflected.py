@@ -58,7 +58,7 @@ def attack(url, cookies={}, selenium=False, fast_attack=True, v=False, ss=False)
     FAST_ATTACK = fast_attack
     ORIGIN = url_repair(url)
     with open(f"./{ATTACK_DIR}/{ORIGIN}.txt", "w") as f: f.write("")
-    with open(f"./result/stored/{ORIGIN}.txt", 'w') as f: f.write("")
+    with open(f"./result/reflected/{ORIGIN}.txt", 'w') as f: f.write("")
     urls = read_urls()
     if selenium:
         # logger.error("개발중: 쿠키 문제, redirect to requests attack")
@@ -105,8 +105,8 @@ def attack_1(i, j, do, cookies):
                 # with open(f"./result/reflected/{ORIGIN}.txt", "a") as f:
                 print_find(i[1], res.status_code, i[0], j, payload)
 
-    except:
-        pass
+    except Exception as e:
+        logger.error(e)
     thread_num -= 1
 
 

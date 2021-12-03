@@ -64,8 +64,8 @@ class UrlObj():
     def go(self):
         global run_cookies
         #get, post에 따라 requests 날리기
-        if self.method == GET: do = get
-        elif self.method == POST: do = post
+        if self.method == POST: do = post
+        else: do = get
 
         try: res = do(self.url, params=self.params, data=self.data, cookies=run_cookies)
         except requests.exceptions.ConnectionError:
@@ -168,8 +168,13 @@ class Spider():
                     params = {}
                     data = {}
                     method = tag.get('method', GET).upper()
-                    if method == GET: params = dicts
-                    else: data = dicts
+                    # if method == GET: params = dicts
+                    # else: data = dicts
+
+                    if method == POST: data = dicts
+                    else:
+                        params = dicts
+                        method = GET
 
                     # logger.debug("check:", urlobj.url)
 
@@ -193,23 +198,29 @@ class Spider():
             # print(urlobj.url, obj.url)
             if urlobj.url == obj.url and urlobj.method == obj.method:
                 flag = 1
-                for i in obj.params:
-                    if urlobj.params.get(i, None) == None:
-                        flag=0
-                        break
-                for i in urlobj.params:
-                    if obj.params.get(i, None) == None:
-                        flag=0
-                        break
-                for i in obj.data:
-                    if urlobj.data.get(i, None) == None:
-                        flag=0
-                        break
-                for i in urlobj.data:
-                    if obj.data.get(i, None) == None:
-                        flag=0
-                        break
-                if flag:
+                # for i in obj.params:
+                #     if urlobj.params.get(i, None) == None:
+                #         flag=0
+                #         break
+                # for i in urlobj.params:
+                #     if obj.params.get(i, None) == None:
+                #         flag=0
+                #         break
+                # for i in obj.data:
+                #     if urlobj.data.get(i, None) == None:
+                #         flag=0
+                #         break
+                # for i in urlobj.data:
+                #     if obj.data.get(i, None) == None:
+                #         flag=0
+                #         break
+                # if flag:
+                #     return True
+                uop = list(urlobj.params); uop.sort()
+                op = list(obj.params); op.sort()
+                uod = list(urlobj.data); uod.sort()
+                od = list(obj.data); od.sort()
+                if uop == op and uod == od:
                     return True
         return False
 
