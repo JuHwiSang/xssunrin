@@ -5,6 +5,8 @@ Made by. team 1321
 
 Warning: The program is under development. You probably don't understand the program. It is very inefficient.
 
+Developed on Windows.
+
 ## initialization
 <code>
 pip install -r requirements.txt
