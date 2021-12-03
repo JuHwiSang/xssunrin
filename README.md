@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## Running
 <code>
-python3 simple_attack.py URL [--OPTIONS]
+python3 xssunrin.py URL [--OPTIONS]
 </code>
 
 ### Options
